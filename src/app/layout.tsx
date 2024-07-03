@@ -141,12 +141,7 @@ export default async function RootLayout({
               socialLinks={footer.socialLinks}
             />
             <Footer
-              logoUrl={footerLogoUrl}
-              logoText={footer.footerLogo.logoText}
-              menuLinks={footer.menuLinks}
-              categoryLinks={footer.categories.data}
               legalLinks={footer.legalLinks}
-              socialLinks={footer.socialLinks}
             />
           </>
         )}
