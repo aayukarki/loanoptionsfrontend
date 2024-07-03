@@ -60,7 +60,7 @@ export default function Hero({ data }: HeroProps) {
     countryCode: "NZ",
     sourceUrl: "https://loanoptions.ai",
     targetSystem: "SKYNET",
-    externalPartnerId: "1960"
+    externalPartnerId: "1960",
   });
 
   useEffect(() => {
@@ -80,7 +80,9 @@ export default function Hero({ data }: HeroProps) {
   const handleSubmit = () => {
     // console.log("Quote data:", quote);
     localStorage.setItem("quote", JSON.stringify(quote));
-    window.location.href = "/application";
+    if (typeof window !== "undefined") {
+      window.location.href = "/application";
+    }
   };
 
   return (
