@@ -1,7 +1,4 @@
 import Hero from "@/app/components/Hero";
-import Features from "@/app/components/Features";
-import Testimonials from "@/app/components/Testimonials";
-import Pricing from "@/app/components/Pricing";
 import Email from "@/app/components/Email";
 import Lo3 from "@/app/components/Lo3";
 import Awards from "@/app/components/Awards";
@@ -13,12 +10,6 @@ export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;
-    case "sections.features":
-      return <Features key={index} data={section} />;
-    case "sections.testimonials-group":
-      return <Testimonials key={index} data={section} />;
-    case "sections.pricing":
-      return <Pricing key={index} data={section} />;
     case "sections.lead-form":
       return <Email key={index} data={section} />;
     case "sections.lo3":
