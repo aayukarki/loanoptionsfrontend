@@ -3,9 +3,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
 import Image from "next/image";
-import { CgWebsite } from "react-icons/cg";
-import { FaDiscord } from "react-icons/fa";
-import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 
 //images
 import aiims from "../../../public/aiims_003.svg";
@@ -16,14 +13,6 @@ interface FooterLink {
   newTab: boolean;
   text: string;
   social?: string;
-}
-
-interface CategoryLink {
-  id: string;
-  attributes: {
-    name: string;
-    slug: string;
-  };
 }
 
 function FooterLink({ url, text }: FooterLink) {
@@ -42,48 +31,10 @@ function FooterLink({ url, text }: FooterLink) {
   );
 }
 
-function CategoryLink({ attributes }: CategoryLink) {
-  return (
-    <li className="flex">
-      <Link
-        href={`/blog/${attributes.slug}`}
-        className="hover:dark:text-violet-400"
-      >
-        {attributes.name}
-      </Link>
-    </li>
-  );
-}
-
-function RenderSocialIcon({ social }: { social: string | undefined }) {
-  switch (social) {
-    case "WEBSITE":
-      return <CgWebsite />;
-    case "TWITTER":
-      return <AiFillTwitterCircle />;
-    case "YOUTUBE":
-      return <AiFillYoutube />;
-    case "DISCORD":
-      return <FaDiscord />;
-    default:
-      return null;
-  }
-}
-
 export default function Footer({
-  logoUrl,
-  logoText,
-  menuLinks,
-  categoryLinks,
   legalLinks,
-  socialLinks,
 }: {
-  logoUrl: string | null;
-  logoText: string | null;
-  menuLinks: Array<FooterLink>;
-  categoryLinks: Array<CategoryLink>;
   legalLinks: Array<FooterLink>;
-  socialLinks: Array<FooterLink>;
 }) {
   return (
     <footer className="py-5 bg-[#0f0e1e] text-white">
