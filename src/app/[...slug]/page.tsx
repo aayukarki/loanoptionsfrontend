@@ -2,7 +2,7 @@ import { sectionRenderer } from "@/app/utils/section-renderer";
 import { Metadata } from "next";
 import { getPageBySlug } from "@/app/utils/get-page-by-slug";
 import { FALLBACK_SEO } from "@/app/utils/constants";
-import Error from '@/app/components/Error'; 
+import Error from "@/app/components/Error";
 
 type Props = {
   params: {
@@ -24,6 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PageRoute({ params }: Props) {
   const page = await getPageBySlug(params.slug, params.lang);
+  if (!page) {
+    return { notFound: true };
+  }
   if (page.data.length === 0) {
     return <Error />;
   }
