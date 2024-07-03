@@ -101,6 +101,8 @@ interface Partners {
         name: string;
         alternativeText: string;
         url: string;
+        height: number;
+        width: number;
       };
     };
   };
@@ -116,6 +118,8 @@ interface socialReviews {
         name: string;
         alternativeText: string;
         url: string;
+        height: number;
+        width: number;
       };
     };
   };
